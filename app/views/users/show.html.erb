@@ -1,9 +1,10 @@
-<%= @user.name %>, <%= @user.email %>
+<h3>All Articles of <%= @user.name %> </h3>
 <% @user.articles.each do |article| %>
   <li>
   <span class="user"><%= link_to article.user.name, user_path(article.user) %></span>
   <span class="content"><%= article.title %></span>
   <span class="content"><%= article.content %></span>
+  <span class="content"><%= article.price %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(article.created_at) %> ago.
   </span>
