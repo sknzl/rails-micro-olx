@@ -8,3 +8,8 @@
 // layout file, like app/views/layouts/application.html.erb
 
 console.log('Hello World from Webpacker')
+// app/javascript/packs/application.js
+// JS libraries
+import "jquery"
+import "jquery-ujs"
+import "bootstrap"
