@@ -1,16 +1,16 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand">
-  <h2>LOGO</h2>
-  </a>
+  <%= link_to root_path, :class => "navbar-wagon-brand navbar-wagon-link" do%>
+  <h3>Mirco-OLX</h3>
+  <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
   <% if logged_in? %>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Home</a>
+    <%= link_to "Home", root_path, :class => "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Users", users_path, :class => "navbar-wagon-item navbar-wagon-link" %>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
+    <%= link_to "New Article",  new_article_path(current_user), :class => "navbar-wagon-item navbar-wagon-link" %>
   <% else %>
     <%= link_to "Log-in", new_session_path, :class => "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Register", new_user_path, :class => "navbar-wagon-item navbar-wagon-link" %>
@@ -20,7 +20,8 @@
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <i class="far fa-user"
+ class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"> </i>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><%= link_to "Users", users_path %></li>
           <li><%= link_to "Profile", edit_user_path(current_user) %></li>
@@ -40,7 +41,7 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><%= link_to "Users", users_path %></li>
         <li><%= link_to "Profile", edit_user_path(current_user) %></li>
-        <li><a href="#">Messages</a></li>
+        <li><%= link_to "New Article",  new_article_path(current_user) %></li>
         <li><%= link_to "Logout", session_path(current_user), method: :delete %></li>
       </ul>
     </div>

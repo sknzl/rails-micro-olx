@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 /* Logo */
@@ -39,6 +40,9 @@
 .navbar-wagon-link {
   color: #616668;
   font-size: 14px;
+  h3{
+    font-size: 24px;
+  }
 }
 .navbar-wagon-link:hover {
   color: #da552f;

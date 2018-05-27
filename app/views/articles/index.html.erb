@@ -1,11 +1,13 @@
-<%= @user.name %>, <%= @user.email %>
-<% @user.articles.each do |article| %>
+<ul>
+<% @articles.each do |article| %>
   <li>
   <span class="user"><%= link_to article.user.name, user_path(article.user) %></span>
-  <span class="content"><%= article.title %></span>
   <span class="content"><%= article.content %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(article.created_at) %> ago.
+    <% if current_user?(article.user) %>
+      <%= link_to "delete", article_path(current_user), method: :delete %>
+    <% end %>
   </span>
 </li>
 <%end%>

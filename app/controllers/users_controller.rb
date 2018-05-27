@@ -55,20 +55,14 @@ private
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
-  def logged_in_user
-    unless logged_in?
-      flash[:danger] = "Please log in."
-      redirect_to new_session_path
-    end
-  end
 
    def correct_user
       @user = User.find(params[:id])
-      redirect_to(new_user_path) unless @user == current_user
+      redirect_to @user unless @user == current_user
     end
 
       def admin_user
-      redirect_to(new_user_path) unless current_user.admin?
+      redirect_to @user unless current_user.admin?
     end
 
 end
