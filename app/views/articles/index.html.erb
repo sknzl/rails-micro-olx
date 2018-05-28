@@ -6,7 +6,10 @@
   <div class="card-body">
     <p class="card-text"><%= article.content %></p>
 
-    <% if logged_in? %>
+
+    <%if current_user?(article.user) %>
+    <%= link_to "delete", article_path(article), method: :delete, data: { confirm: "You sure?" },:class => "btn btn-info" %>
+    <% elsif logged_in? %>
     <%= mail_to article.user.email, "Email seller", :class => "btn btn-primary" %>
     <%= link_to "Other articles of seller", user_path(article.user), :class => "btn btn-info" %>
     <% else %>
@@ -16,3 +19,4 @@
   </div>
 </div>
 <%end%>
+
