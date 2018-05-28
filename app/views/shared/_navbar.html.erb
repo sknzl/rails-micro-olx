@@ -9,7 +9,6 @@
 
   <% if logged_in? %>
     <%= link_to "Home", root_path, :class => "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Users", users_path, :class => "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "New Article",  new_article_path(current_user), :class => "navbar-wagon-item navbar-wagon-link" %>
   <% else %>
     <%= link_to "Log-in", new_session_path, :class => "navbar-wagon-item navbar-wagon-link" %>
